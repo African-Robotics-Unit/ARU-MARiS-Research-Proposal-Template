@@ -1,0 +1,46 @@
+name: Build
+
+on:
+  workflow_dispatch:
+  push:
+    paths-ignore:
+      - "README.md"
+      - "LICENSE"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: LaTeX Compile
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: 0_main.tex
+
+      - name: Upload PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: Proposal PDF
+          path: proposal.pdf
+
+      - name: Tag
+        id: tag
+        run: echo "release_tag=Autobuild_$(date +'%Y.%m.%d_%H-%M')" >> $GITHUB_OUTPUT
+
+      - name: Release Draft
+        uses: softprops/action-gh-release@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          name: Autobuild
+          tag_name: ${{ steps.tag.outputs.release_tag }}
+          files: proposal.pdf
+          body: |
+            This is an automated build of the proposal.
+          prerelease: true
