@@ -9,6 +9,8 @@ words:
   - inflammasome
   - labelfont
   - labelsep
+  - latexmk
+  - latexmkrc
   - MARIS
   - ORCID
   - Peoplesoft
