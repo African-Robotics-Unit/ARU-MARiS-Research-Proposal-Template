@@ -1,0 +1,20 @@
+version: "0.2"
+ignorePaths: []
+dictionaryDefinitions: []
+dictionaries: []
+words:
+  - colors
+  - defaulttext
+  - Empl
+  - inflammasome
+  - labelfont
+  - labelsep
+  - MARIS
+  - ORCID
+  - Peoplesoft
+  - PNAS
+  - Subcaptions
+  - subfigures
+  - TLRs
+ignoreWords: []
+import: []

@@ -1,0 +1,458 @@
+%=====================================================================
+%	UCT-MARiS-ARU LaTeX RESEARCH GROUP TEMPLATE
+%---------------------------------------------------------------------
+%	Created by:     R.A. Verrinder
+% Modified by:    L.D. Stanton
+%	Date Modified:	August 2024
+%---------------------------------------------------------------------
+
+%====================================================================
+% UCT research proposal guidelines
+%---------------------------------------------------------------------
+% * Be approximately 10 pages long
+% * Candidates should note that the purpose of the proposal document
+%   is to make a case for the research to be undertaken. It is not a
+%   progress report. 
+% * The document should include:
+%		-	A summary of the essential background literature
+%		-	An explanation of the need for the research to be done
+%		-	The hypotheses / objectives of the research
+%		-	The key questions to be addressed in the research
+%		-	The approach to be taken in doing the project, viz. 
+%           experimental procedures, methodology for analysing results 
+% * It must demonstrate an adequate understanding of the current 
+%   literature in the field, a clear definition of the hypotheses 
+%   proposed, bearing in mind that in most fields of research it is not
+%   possible to pursue research without first establishing an 
+%   hypothesis.
+% * A clear definition of the key questions to be addressed in the 
+%   context of the proposed hypotheses. 
+% * A clear knowledge of the experimental procedures to be used and the 
+%   methodology to be used in analysing the results
+%=====================================================================
+%	Document properties:
+%---------------------------------------------------------------------
+%	Paper size:			A4
+%	Margins:			2 cm (top,bottom,left,right)
+%	Printing:			Double sided
+%	Base font size:		11pt
+%	Paragraph spacing:	10pt
+%	Paragraph indent:	0pt
+%=====================================================================
+\documentclass[a4paper,10pt,oneside]{book}
+%---------------------------------------------------------------------
+%	PACKAGES
+%---------------------------------------------------------------------
+% Layout and Formatting
+\usepackage{scrextend}           % Improved page dimensions
+\usepackage[margin=1.5cm]{geometry} % Adjust page margins
+\usepackage{lscape}              % Landscape page orientation
+\usepackage{setspace}            % Adjust line spacing
+\usepackage{rotating}            % Rotation of figures and tables
+\usepackage{hyphenat}            % Hyphenation rules
+\usepackage{titlesec}            % Customizing section titles
+% \usepackage{lastpage}            % Reference to the last page
+\usepackage[dvipsnames,table,xcdraw]{xcolor} % Custom colours
+\usepackage{import}               % Importing files
+\usepackage{array}               % Customizing table columns
+\usepackage{mdframed}            % Drawing boxes around text
+\usepackage{xspace}              % Smart spacing
+\usepackage{caption}             % Customizing captions
+\usepackage[official]{eurosym}   % Euro symbol
+\usepackage{url}                 % Handling URLs
+\usepackage{ragged2e}            % Provides better justification commands
+\usepackage{tabularx}            % More table configurability
+\usepackage{calc}                % Can use counters   
+\usepackage{enumitem}            % Modify enumerated lists
+
+% Hyperlinks and Cross-Referencing
+\usepackage{hyperref}            % Hyperlinks in the document
+\usepackage{fancyref}            % Fancy cross-referencing
+\usepackage{fancyvrb}            % Sophisticated verbatim text
+
+% Graphics and Figures
+\usepackage{graphicx}            % Include graphics in the document
+\usepackage{float}               % Improved float placement
+\usepackage{wrapfig}             % Wrap text around figures
+\usepackage{subcaption}          % Subcaptions for subfigures
+\usepackage{tikz}                % Drawing figures and diagrams
+\usetikzlibrary{positioning,shapes.geometric,arrows,calc,circuits.logic.US}
+\usepackage{enumerate}           % Customizing enumeration
+\usepackage{multirow}            % Multi-row cells in tables
+\usepackage{hhline}              % Improved horizontal lines in tables
+
+% Mathematical Symbols and Environments
+\usepackage{amsmath, amsthm, amssymb} % Mathematical symbols and environments
+
+% Language 
+\usepackage[english]{babel}      % Language settings
+
+% Date and Time Formatting
+\usepackage[en-GB]{datetime2}    % Flexible date and time formatting
+\DTMlangsetup[en-GB]{ord=omit}   % Removes 1st 2nd etc       
+
+% Font and Typography
+\usepackage{fix-cm}              % Customizing font size
+\usepackage{color}               % Customizing font color
+\usepackage{textcomp, gensymb}             % Generic symbols
+% \usepackage[defaultfam,tabular,lining]{montserrat} % Montserrat font
+\usepackage[T1]{fontenc}         % Font encoding
+
+% Citations and Bibliography
+% \usepackage{cite}                % Improved citation handling
+\usepackage{natbib}              % Flexible bibliography support
+\nocite{*}
+
+
+%=====================================================================
+%	DOCUMENT PROPERTIES
+%---------------------------------------------------------------------
+% 	PAGE FORMATTING
+%---------------------------------------------------------------------
+\setlength{\parskip}{10pt}       % Paragraph spacing
+\setlength{\parindent}{0pt}     % No paragraph indentation
+
+\captionsetup{
+  width=0.8\textwidth,
+  font=small,
+  labelfont=bf
+}                                % Caption margins 80% of text
+
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+%---------------------------------------------------------------------
+%	NEW COMMANDS
+%---------------------------------------------------------------------
+% Fill in your details here. These macro commands can the be used 
+% throughout the document. Comment out what is unnecessary.
+%---------------------------------------------------------------------
+% Macros for Document Properties
+%---------------------------------------------------------------------
+\newcommand{\titl}{Title}
+\newcommand{\subtitle}{MSc (Eng) Research Proposal}
+\newcommand{\degreee}{Master of Science in Electrical Engineering}
+\newcommand{\degreeabv}{MSc (Eng)}
+
+\newcommand{\auth}{First name(s) \textbf{Surname}}
+\newcommand{\studentnumber}{ABCDEF001}
+\newcommand{\psemplid}{123456}
+
+\newcommand{\yearFirst}{2024}
+\newcommand{\yearFinal}{2026}
+
+\newcommand{\fundingprogramme}{NRF South African National Antarctic Programme (SANAP)}
+\newcommand{\fundingreferencenumber}{SANAP23042195826}
+
+\newcommand{\ebeethicsnumber}{STU-EBE-yyyy-PSQxxxxxx}
+\newcommand{\orcidid}{\hyperlink{https://orcid.org/xxxx-xxxx-xxxx-xxxx}{xxxx-xxxx-xxxx-xxxx}}
+\newcommand{\gitrepo}{\hyperlink{https://github.com/username/project}{Repo name}}
+
+
+\newcommand{\dept}{Department of Electrical Engineering}
+\newcommand{\uni}{University of Cape Town}
+\newcommand{\city}{Rondebosch, Cape Town}
+\newcommand{\country}{South Africa}
+\newcommand{\aemail}{name@uct.ac.za}
+
+\newcommand{\supervisor}{Supervisor Initial's \textbf{Surname}}
+\newcommand{\cosupervisor}{Co-supervisor Initial \textbf{Surname}}
+\newcommand{\eeehod}{Prof. M.A. Khan}
+
+%---------------------------------------------------------------------
+% Macros for Date and Time
+%---------------------------------------------------------------------
+
+\newcommand{\proposaldate}{\DTMdisplaydate{2024}{03}{04}{-1}}
+
+%---------------------------------------------------------------------
+% Keywords and Logos
+%---------------------------------------------------------------------
+\newcommand{\key}{keyword1; keyword2; keyword3}
+
+\newcommand{\logo}{\includegraphics[scale = 0.6]{figs/uctLogo}}
+
+\newcommand{\marisarulogo}{%
+  \begin{figure}[H]
+    \begin{minipage}{0.45\textwidth}
+      \centering
+      \includegraphics[height=1.5cm]{figs/maris-logo.png}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.45\textwidth}
+      \centering
+      \includegraphics[height=1.5cm]{figs/aru-logo.png}
+    \end{minipage}
+  \end{figure}%
+}
+
+%---------------------------------------------------------------------
+% Signature Macro
+%---------------------------------------------------------------------
+\newcommand*{\signature}[1]
+{
+	\par\noindent\makebox [5cm]{\hrulefill}\hspace {6cm}\makebox[5cm]{\hrulefill} \\
+	{\itshape Signature}\hspace {9.5cm}{\itshape Date}
+}
+
+%---------------------------------------------------------------------
+% Theorems and Activities
+%---------------------------------------------------------------------
+\newtheorem*{guess*}{Hypothesis}
+\newtheorem*{activity*}{Activity}
+
+%---------------------------------------------------------------------
+% Counters
+%---------------------------------------------------------------------
+% Define counter for both WP and Objective
+\newcounter{workpackage}
+\setcounter{workpackage}{0}
+\renewcommand{\theworkpackage}{WP\arabic{workpackage}}
+
+% Define a new counter for objectives
+\newcounter{objective}[workpackage]
+\renewcommand{\theobjective}{\theworkpackage.\arabic{objective}}
+
+% Define custom list counter for "Task"
+\newlist{task}{enumerate}{1}
+\setlist[task,1]{label=\textbf{Task \arabic*: },left=0pt,labelsep=0pt,font=\footnotesize}
+
+%---------------------------------------------------------------------
+% Define custom colors
+%---------------------------------------------------------------------
+\definecolor{titlebg}{HTML}{959595}
+\definecolor{colbg}{HTML}{F5F5F5}
+\definecolor{objectivebg}{HTML}{C5C5C5}
+\definecolor{defaulttext}{HTML}{595959}
+\definecolor{tablerule}{HTML}{666666}
+
+%---------------------------------------------------------------------
+%	DOCUMENT
+%---------------------------------------------------------------------
+\begin{document}
+
+%=====================================================================
+%	TITLE PAGE
+%=====================================================================
+\begin{titlepage}
+  \centering
+  \vspace*{1cm}
+
+  % Title
+  \begin{Huge}
+    \bfseries\titl\par
+    \vskip 0.2cm
+  \end{Huge}
+
+  % Subtitle
+  \begin{Large}
+    \subtitle\\*
+    \vskip 2.5cm
+  \end{Large}
+
+  % UCT logo
+  \logo
+
+  \vskip 2.5cm
+
+  % Author
+  \begin{Large}
+    \bfseries\auth\\
+  \end{Large}
+
+  % Author's address
+  \begin{normalsize}
+    \vskip 2mm
+    \dept\\*
+    \uni\\*
+    \city\\*
+    \country\\*
+
+    \vskip 1cm
+  \end{normalsize}
+
+  % Supervisor (optional)
+  \begin{normalsize}
+    {\itshape Supervisor: \\*}
+    \supervisor\\
+    \vskip 0.2cm
+  \end{normalsize}
+
+  % Cosupervisor (optional)
+  \begin{normalsize}
+    {\itshape Co-supervisor: \\*}
+    \cosupervisor\\
+    \vskip 1cm
+  \end{normalsize}
+
+  % Date
+  \begin{Large}
+    {\bfseries \today}
+    \vskip 0.5cm
+  \end{Large}
+
+  % Degree
+  \degreeabv\ research proposal presented to the Centre for Marine and Antarctic Research for Innovation and Sustainability (MARIS) and the African Robotics Unit (ARU) at the \uni
+  \vskip 0.5cm
+
+  % Keywords
+  \begin{normalsize}
+    {\itshape Field of research:}
+    \key
+  \end{normalsize}
+
+  \vskip 1cm
+
+  % ARU logo
+  \marisarulogo
+\end{titlepage}
+
+%=====================================================================
+%	FRONT MATTER
+%=====================================================================
+\frontmatter
+%---------------------------------------------------------------------
+% Student details
+%---------------------------------------------------------------------
+\chapter*{Student details}
+\label{ch:student}
+\begin{table}[H]
+  \centering
+  \renewcommand{\arraystretch}{2} % Adjust this value to set the row height
+  \arrayrulecolor{tablerule} % Set the color of the table lines
+  \begin{tabular}{|>{\columncolor{colbg}}p{0.3\textwidth}|p{0.6\textwidth}|}
+    \hline
+    \multicolumn{2}{|>{\columncolor{titlebg}}l|}{\large\textbf{Student Details}}                         \\
+    \hline
+    \textcolor{defaulttext}{Name}                        & \auth                                         \\
+    \hline
+    \textcolor{defaulttext}{Student Peoplesoft Empl. ID} & \psemplid                                     \\
+    \hline
+    \textcolor{defaulttext}{Student Number}              & {\studentnumber}                              \\
+    \hline
+    \textcolor{defaulttext}{Degree Programme}            & {\degreee}                                    \\
+    \hline
+    \textcolor{defaulttext}{Year of first registration}  & {\yearFirst}                                  \\
+    \hline
+    \textcolor{defaulttext}{Year of intended submission} & {\yearFinal}                                  \\
+    \hline
+    \textcolor{defaulttext}{Supervisor}                  & {\supervisor}                                 \\
+    \hline
+    \textcolor{defaulttext}{Co-supervisor}               & {\cosupervisor}                               \\
+    \hline
+    %Co-supervisor 2 & \textcolor{gray}{Enter co-supervisor 2} \\
+    %\hline
+    \textcolor{defaulttext}{Project Funding Programme}   & {\fundingprogramme{} \fundingreferencenumber} \\
+    \hline
+    \textcolor{defaulttext}{EBE Ethics Number}           & {\ebeethicsnumber}                            \\
+    \hline
+    \textcolor{defaulttext}{ORCID ID}                    & {\orcidid}                                    \\
+    \hline
+    \textcolor{defaulttext}{Project GitHub repository}   & {\gitrepo}                                    \\
+    \hline
+  \end{tabular}
+\end{table}
+
+%---------------------------------------------------------------------
+% Statement
+%---------------------------------------------------------------------
+\chapter*{Statement}
+\label{ch:statement}
+This research proposal seminar, for the degree of \degreee in Electrical Engineering, was presented to the Centre for Marine and Antarctic Research for Innovation and Sustainability (MARIS) and the African Robotics Unit (ARU) and thesis supervisor on the \proposaldate.
+
+\vspace{1cm}
+\signature\\
+\newline
+{\footnotesize
+  {\itshape \auth}\\
+  \degreeabv\ candidate, \dept\\
+  \vspace{1cm}
+}
+
+I confirm that the above candidate presented a seminar on \proposaldate in the Department on the subject of this research proposal and recommend that the proposal be approved.
+
+\vspace{1cm}
+\signature\\
+\newline
+{\footnotesize
+  {\itshape \supervisor}\\
+  Supervisor, \dept\\
+}
+
+\vspace{1cm}
+
+%---------------------------------------------------------------------
+% Abstract
+%---------------------------------------------------------------------
+\chapter*{Abstract}
+\label{ch:abstract}
+\begin{center}
+  \textbf{\Large \titl}\\
+  \vspace{0.2cm}
+  \auth\\
+  \vspace{0.2cm}
+  \textit{\footnotesize \today}
+  \vspace{1cm}
+\end{center}
+
+% Write abstract here [350 words]
+
+%---------------------------------------------------------------------
+% Table of Contents
+%---------------------------------------------------------------------
+\tableofcontents
+
+%---------------------------------------------------------------------
+% List of Figures
+%---------------------------------------------------------------------
+\listoffigures
+
+%---------------------------------------------------------------------
+% List of Tables
+%---------------------------------------------------------------------
+\listoftables
+
+%---------------------------------------------------------------------
+% List of Symbols
+%---------------------------------------------------------------------
+% Add your list of symbols here, if needed
+
+%---------------------------------------------------------------------
+% Glossary
+%---------------------------------------------------------------------
+% Add your glossary here, if needed
+
+%=====================================================================
+%	MAIN MATTER
+%=====================================================================
+\mainmatter
+
+
+%=====================================================================
+%	CHAPTER MATTER
+%=====================================================================
+\include{1_intro}
+\include{2_background}
+\include{3_plan}
+\include{4_method}
+\include{5_results}
+\include{6_data}
+\include{7_outline}
+\include{8_appendix}
+
+
+%=====================================================================
+%	BACK MATTER
+%=====================================================================
+\backmatter
+%---------------------------------------------------------------------
+% Bibliography
+%---------------------------------------------------------------------
+\bibliographystyle{kluwer}
+% \setcitestyle{authoryear,round,semicolon}
+\bibliography{proposal}
+%---------------------------------------------------------------------
+\end{document}
+%---------------------------------------------------------------------
+%	End of the document
+%=====================================================================
+
+
